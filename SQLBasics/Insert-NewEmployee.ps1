@@ -23,7 +23,7 @@
     $qryOne = "$insertEmpInfo $empValues"
     $qryTwo = "$insertOrgInfo $orgValues"
 
-    Invoke-SQLCMD -query $qryOne -ServerInstance NSRESQL1
-    Invoke-SQLCMD -query $qryTwo -ServerInstance NSRESQL1
+    Invoke-SQLCMD -query $qryOne -ServerInstance Server\Instance
+    Invoke-SQLCMD -query $qryTwo -ServerInstance Server\Instance
 }
 Insert-NewEmployee

@@ -8,7 +8,7 @@
     $query += "FROM test_org..org_info as a,test_org..emp_info as b "
     $query += "WHERE a.emp_id=$employeeID AND a.emp_id=b.emp_id"
 
-    $results = Invoke-SQLCmd -query $query -ServerInstance NSRESQL1
+    $results = Invoke-SQLCmd -query $query -ServerInstance Server\Instance
     
     $results | format-list
 }
