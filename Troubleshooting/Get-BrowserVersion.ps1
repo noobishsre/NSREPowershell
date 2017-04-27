@@ -1,4 +1,4 @@
-﻿Function Get-FirefoxVersion
+﻿Function Get-BrowserVersion
 {
     Param(
         [Parameter(Mandatory=$true,
@@ -16,4 +16,4 @@
     ## Return Version
     return $ffVersion
 }
-Get-FirefoxVersion
+Get-BrowserVersion
