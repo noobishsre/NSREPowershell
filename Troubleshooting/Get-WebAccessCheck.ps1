@@ -1,8 +1,20 @@
-﻿Function Get-WebAccessCheck($userInfo)
+﻿Function Get-WebAccessCheck
 {
-    $usr = $userInfo.Username
-    $pc = $userInfo.PCName
-
+    Param(
+        [Parameter(Mandatory=$true,
+        ValueFromPipeline=$true,
+        HelpMessage="PC Name?")]
+	    [string] $pcName
+        
+        #For later use...
+        <#
+        [Parameter(Mandatory=$true,
+        ValueFromPipeline=$true,
+        HelpMessage="Username?")]
+	    [string] $userName
+        #>
+    )
+    
     ######################################
     ## Round 1 - Network Check
     ######################################
@@ -21,7 +33,7 @@
     ## Round 3 - Firefox Version Check
     ######################################
     Write-Host "Checking Firefox Version..."
-    $ffVersion = Get-BrowserV $pc
+    $ffVersion = Get-FirefoxDetails $pc
     $ffVersion | format-table
 
     ######################################
@@ -31,11 +43,4 @@
     $folderPerms = Check-FolderPermissions $pc
     $folderPerms | format-list
 }
-
-$user = Read-Host "Username:"
-$pcName = Read-Host "Machine Name:"
-$userInfo = [PSCustomObject]@{
-    Username = $user
-    PCName = $pcName
-}
-Get-WebAccessCheck $userInfo
+export-modulemember -function Get-WebAccessCheck

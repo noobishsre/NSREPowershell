@@ -1,4 +1,4 @@
-﻿Function Get-BrowserV
+﻿Function Get-FirefoxDetails
 {
     Param(
         [Parameter(Mandatory=$true,
@@ -16,4 +16,4 @@
     ## Return Version
     return $ffVersion
 }
-Get-BrowserV
+export-modulemember -function Get-FirefoxDetails

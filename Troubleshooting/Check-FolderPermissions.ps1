@@ -10,4 +10,4 @@
     $result = (Get-Acl "\\$pcName\c$\Program Files (x86)\Mozilla Firefox").Access | where{$_.IdentityReference -eq "BUILTIN\Users"}
     return $result
 }
-Check-FolderPermissions
+export-modulemember -function Check-FolderPermissions

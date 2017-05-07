@@ -13,7 +13,14 @@
     
     $yN = @()
     ## Ping PC
-    $ping = Test-Connection $pcName -Count 1
+    try
+    {
+        $ping = Test-Connection $pcName -Count 1 -erroraction silentlycontinue
+    }
+    catch
+    {
+        #Do stuff
+    }
     
     ## If no response, write message, otherwise, test server connection
     if($ping -eq $NULL)
@@ -28,7 +35,16 @@
         Write-Host "`nDestination computer pingable"
         Write-Host "`nChecking Server Connection..."
         $ping | format-table
-        $srvrCheck = Test-Connection $server -Count 1
+        
+        try
+        {
+            $srvrCheck = Test-Connection $server -Count 1 -erroraction silentlycontinue
+        }
+        catch
+        {
+            #dostuff
+        }
+
         if($srvrCheck -eq $NULL)
         {
             $yN += "0"
@@ -60,3 +76,4 @@
     }
     return $rtrnMessage
 }
+export-modulemember -function Network-Check

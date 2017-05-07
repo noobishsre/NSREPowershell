@@ -20,4 +20,4 @@
     ## Multiple Machines?
     
 }
-Get-CPUStatus
+export-modulemember -function Get-CPUStatus
