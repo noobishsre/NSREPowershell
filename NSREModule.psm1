@@ -1,7 +1,11 @@
 ﻿$NSRERoot = (Split-Path -Path $MyInvocation.MyCommand.Path)
 
 #For future use : "$moduleRoot\SQLBasics\*.ps1"
-"$NSRERoot\Troubleshooting\*.ps1" | Resolve-Path | ForEach-Object { . $_.ProviderPath }
+"$NSRERoot\Troubleshooting\*.ps1",`
+"$NSRERoot\Troubleshooting\Network\*.ps1",`
+"$NSRERoot\Troubleshooting\User\*.ps1",`
+"$NSRERoot\Troubleshooting\PC\*.ps1",`
+"$NSRERoot\Troubleshooting\Browser\*.ps1" | Resolve-Path | ForEach-Object { . $_.ProviderPath }
 
 #By adding the Toolbox path to the environment path 
 #This enables us to be able to call these functions 

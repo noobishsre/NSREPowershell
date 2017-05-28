@@ -1,0 +1,49 @@
+﻿$Path = "C:\Program Files\ccleaner\ccleaner.exe"
+$app = ".exe"
+$full = "$Path$app"
+
+
+$paintPath = "C:\Windows\system32\mspaint.exe"
+
+Write-Verbose "Launching Application"
+Start-Process $paintPath 
+
+$a = @()
+Write-Verbose "Launching Application"
+
+start-sleep -s 5
+Start-Process $full
+Start-Sleep -s 10
+
+
+
+Write-Host "Activating Application Form and Invoking Send Keys"
+ $wshell = New-Object -ComObject wscript.shell
+ $wshell.AppActivate('$app')
+ Add-Type -AssemblyName System.Windows.Forms
+
+
+ start-sleep -s 1
+ [System.Windows.Forms.SendKeys]::SendWait('%{PrtSc}');
+ start-sleep -s 1
+  [System.Windows.Forms.SendKeys]::SendWait('%{F4}');
+  start-sleep -s 1
+
+
+ 
+ $wshell.AppActivate('Paint')
+ start-sleep -s 1
+ [System.Windows.Forms.SendKeys]::SendWait('^{v}');
+ start-sleep -s 1
+  [System.Windows.Forms.SendKeys]::SendWait('^{s}');
+  start-sleep -s 5
+  $wshell.SendKeys('testBig.png')
+  start-sleep -s 1
+  [System.Windows.Forms.SendKeys]::SendWait('~');
+  start-sleep -s 5
+  [System.Windows.Forms.SendKeys]::SendWait('%{F4}');
+  start-sleep -s 2
+ <#
+ $rect = New-Object System.Drawing.Rectangle 10,200,548,56
+dir c:\users\administrator\desktop\file.png | Export-ImageText -Rect $rect
+#>
