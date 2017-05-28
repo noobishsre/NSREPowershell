@@ -4,7 +4,7 @@
         [Parameter(Mandatory=$true,
         ValueFromPipeline=$true,
         HelpMessage="PC Name?")]
-	    [string] $pcName
+	    [string] $pc
         
         #For later use...
         <#
