@@ -4,4 +4,4 @@
 "$NSRERoot\Troubleshooting\Software\*.ps1",`
 "$NSRERoot\Troubleshooting\Hardware\*.ps1",`
 "$NSRERoot\Troubleshooting\Security\*.ps1", `
-"$NSRERoot\SQLBasics\*.ps1" | Resolve-Path | ForEach-Object { . $_.ProviderPath }
+"$NSRERoot\Troubleshooting\Database\*.ps1" | Resolve-Path | ForEach-Object { . $_.ProviderPath }
