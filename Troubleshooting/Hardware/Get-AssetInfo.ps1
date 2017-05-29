@@ -62,7 +62,7 @@
         $serv | select Name, Status | format-table | out-file -append $logFile
         if($serv.Status -eq "Stopped")
         {
-            Write-Host "$status has been found in a non running state, attempting to restart" | out-file -append $logFile
+            "$status has been found in a non running state, attempting to restart" | out-file -append $logFile
             try
             {
                 start-service $s
