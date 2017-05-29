@@ -59,7 +59,7 @@
     {
         
         $serv = Get-Service -ComputerName $asset | where-object {$_.Name -eq $s} | out-file -append $logFile
-        Write-host $serv | select Name, Status
+        $serv | select Name, Status | format-table
         if($serv.Status -eq "Stopped")
         {
             "$status has been found in a non running state, attempting to restart" | out-file -append $logFile
