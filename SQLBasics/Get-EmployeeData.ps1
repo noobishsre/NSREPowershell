@@ -12,4 +12,4 @@
     
     $results | format-list
 }
-Get-EmployeeData
+export-modulemember -function Get-EmployeeData

@@ -46,4 +46,4 @@
         write-host "an error has occurred"
     }
 }
-Validate-EmployeeData
+export-modulemember -function Validate-EmployeeData

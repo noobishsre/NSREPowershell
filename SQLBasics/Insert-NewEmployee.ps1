@@ -26,4 +26,4 @@
     Invoke-SQLCMD -query $qryOne -ServerInstance Server\Instance
     Invoke-SQLCMD -query $qryTwo -ServerInstance Server\Instance
 }
-Insert-NewEmployee
+export-modulemember -function Insert-NewEmployee
