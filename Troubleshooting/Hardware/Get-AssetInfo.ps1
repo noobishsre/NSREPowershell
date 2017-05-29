@@ -12,14 +12,14 @@
     ##########################################################
     ## Gather BIOS version and Device Serial Number
     ##########################################################
-    $winBiosObj = Get-WmiObject -Class Win32_BIOS -ComputerName . | `
+    $winBiosObj = Get-WmiObject -Class Win32_BIOS -ComputerName $asset | `
     Select SMBIOSBIOSVersion, SerialNumber | `
     out-file -append $logFile
 
     ##########################################################
     ## Gather system information
     ##########################################################
-    $CompSysObj = Get-WmiObject -Class Win32_ComputerSystem | `
+    $CompSysObj = Get-WmiObject -Class Win32_ComputerSystem -ComputerName $asset| `
     Select-Object -Property PSComputerName, BootupState, Status, Name, `
     DNSHostname, Domain, Manufacturer, Model, SystemType, UserName | `
     out-file -append $logFile
@@ -27,21 +27,21 @@
     ##########################################################
     ## Check installed hotfixes
     ##########################################################
-    $hotFixObj = Get-WmiObject -Class Win32_QuickFixEngineering -ComputerName . | `
+    $hotFixObj = Get-WmiObject -Class Win32_QuickFixEngineering -ComputerName $asset | `
     Select-Object -Property HotFixID, InstalledOn, InstalledBy | `
     out-file -append $logFile
 
     ##########################################################
     ## Get Operating System Information
     ##########################################################
-    $winOSObj = Get-WmiObject -Class Win32_OperatingSystem -ComputerName . | `
+    $winOSObj = Get-WmiObject -Class Win32_OperatingSystem -ComputerName $asset | `
     Select-Object -Property BuildNumber,BuildType,OSType,ServicePackMajorVersion,ServicePackMinorVersion | `
     out-file -append $logFile
 
     ##########################################################
     ## Get HDD Information
     ##########################################################
-    $winDiskObj = Get-WmiObject -Class Win32_LogicalDisk -Filter "DriveType=3" -ComputerName . | `
+    $winDiskObj = Get-WmiObject -Class Win32_LogicalDisk -Filter "DriveType=3" -ComputerName $asset | `
     Select DeviceID, @{n="Size";e={[math]::Round($_.Size/1GB,2)}},@{n="FreeSpace";e={[math]::Round($_.FreeSpace/1GB,2)}} | `
     out-file -append $logFile
 
@@ -58,7 +58,7 @@
     foreach($p in $serviceList)
     {
         
-        $serv = Get-Service -ComputerName . | where-object {$_.Name -eq $s}
+        $serv = Get-Service -ComputerName $asset | where-object {$_.Name -eq $s}
         $serv | select Name, Status | format-table | out-file -append $logFile
         if($serv.Status -eq "Stopped")
         {
