@@ -52,6 +52,8 @@
 
     ##########################################################
     ## Service checks and restarts if necessary
+    ## There's something goofy going on in this section
+    ## It's not validating the status
     ##########################################################
     $serviceList = @("NetLogon", "DNS", "Spooler", "sqlwriter")
 
@@ -59,7 +61,8 @@
     {
         
         $serv = Get-Service -ComputerName $asset | where-object {$_.Name -eq $s} | out-file -append $logFile
-        if($serv.Status -eq "Stopped")
+        $status = $serv.Status
+        if($status -eq "Stopped")
         {
             "$status has been found in a non running state, attempting to restart" | out-file -append $logFile
             try
