@@ -9,6 +9,7 @@
     )
 
     $logFile = "C:\Temp\AssetInfo-$asset.txt"
+    
     ##########################################################
     ## Gather BIOS version and Device Serial Number
     ##########################################################
