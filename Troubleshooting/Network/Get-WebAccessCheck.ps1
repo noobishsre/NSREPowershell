@@ -2,13 +2,15 @@
 {
     <#
     .SYNOPSIS
-    Script Synopsis
+    Validates criteria needed for accessing web application
     .DESCRIPTION
-    Script Description
+    This script validates several different criteria in order to check if
+    a given user/machine has the necessary configuration and/or access to
+    utilize a web based application
     .EXAMPLE
-    Usage Example
+    Get-WebAccessCheck <machinename>
     .NOTES
-    Notes
+    The user validation portion of this script is not currently configured
     .LINK
     URL
     #>

@@ -2,13 +2,14 @@
 {
     <#
     .SYNOPSIS
-    Script Synopsis
+    Gather details about a given employee from MySQL database
     .DESCRIPTION
-    Script Description
+    Script queries database for info about an employee and returns the data
     .EXAMPLE
-    Usage Example
+    Get-EmployeeData <employeeID>
     .NOTES
-    Notes
+    For this script to function correctly, you must have a database configured
+    with the correct tables/columns/data
     .LINK
     URL
     #>
@@ -21,7 +22,7 @@
     $query += "FROM test_org..org_info as a,test_org..emp_info as b "
     $query += "WHERE a.emp_id=$employeeID AND a.emp_id=b.emp_id"
 
-    $results = Invoke-SQLCmd -query $query -ServerInstance Server\Instance
+    $results = Invoke-SQLCmd -query $query -ServerInstance <#Server\Instance#>
     
     $results | format-list
 }

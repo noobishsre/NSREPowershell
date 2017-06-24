@@ -2,11 +2,12 @@
 {
     <#
     .SYNOPSIS
-    Script Synopsis
+    Network Checks for a given device
     .DESCRIPTION
-    Script Description
+    This script performs a few different checks to troubleshoot
+    network issues
     .EXAMPLE
-    Usage Example
+    Network-Check <machinename>
     .NOTES
     Notes
     .LINK

@@ -2,11 +2,13 @@
 {
     <#
     .SYNOPSIS
-    Script Synopsis
+    Validate firefox installation details
     .DESCRIPTION
-    Script Description
+    This script performs a check on the version of firefox to ensure the correct
+    version is installed, if not, it calls Repair-Firefox to uninstall the wrong
+    version and install the correct one
     .EXAMPLE
-    Usage Example
+    Get-FirefoxDetails <machinename>
     .NOTES
     Notes
     .LINK

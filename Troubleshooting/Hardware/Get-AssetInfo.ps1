@@ -2,11 +2,11 @@
 {
     <#
     .SYNOPSIS
-    Script Synopsis
+    Gathers hardware information of a given device
     .DESCRIPTION
-    Script Description
+    This script uses Get-WMIObject to obtain information about a given device
     .EXAMPLE
-    Usage Example
+    Get-AssetInfo <devicename>
     .NOTES
     Notes
     .LINK

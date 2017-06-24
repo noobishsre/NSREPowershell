@@ -2,11 +2,12 @@
 {
     <#
     .SYNOPSIS
-    Script Synopsis
+    Validates folder permissions
     .DESCRIPTION
-    Script Description
+    This script validates whether or not the permissions for a directory are configured
+    correctly
     .EXAMPLE
-    Usage Example
+    Check-FolderPermissions <machinename>
     .NOTES
     Notes
     .LINK

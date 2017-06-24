@@ -2,13 +2,15 @@
 {
     <#
     .SYNOPSIS
-    Script Synopsis
+    Validates employee information in database
     .DESCRIPTION
-    Script Description
+    This script checks to make sure that the employee data of a given employee
+    is consistent across employee data tables
     .EXAMPLE
-    Usage Example
+    Validate-EmployeeData <employeeID>
     .NOTES
-    Notes
+    For this script to function correctly, you must have a database configured
+    with the correct tables/columns/data
     .LINK
     URL
     #>

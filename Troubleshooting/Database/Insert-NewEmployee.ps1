@@ -2,13 +2,15 @@
 
     <#
     .SYNOPSIS
-    Script Synopsis
+    Insert new employee in database
     .DESCRIPTION
-    Script Description
+    This script will prompt for details about a new user and then insert them
+    into the employee database
     .EXAMPLE
-    Usage Example
+    Insert-NewEmployee
     .NOTES
-    Notes
+    For this script to function correctly, you must have a database configured
+    with the correct tables/columns/data
     .LINK
     URL
     #>

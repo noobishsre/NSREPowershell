@@ -30,11 +30,12 @@ function Repair-Firefox
 {
     <#
     .SYNOPSIS
-    Script Synopsis
+    Uninstall/Reinstalls Firefox
     .DESCRIPTION
-    Script Description
+    This script is utilized by Get-FirefoxDetails to uninstall an old or incorrect
+    version of Firefox and install the desired version
     .EXAMPLE
-    Usage Example
+    Repair-Firefox <machinename>
     .NOTES
     Notes
     .LINK

@@ -2,11 +2,12 @@
 {
     <#
     .SYNOPSIS
-    Script Synopsis
+    Get data about CPU
     .DESCRIPTION
-    Script Description
+    This script performs a scan of running processes on a given machine and returns
+    top five processes utilizing CPU
     .EXAMPLE
-    Usage Example
+    Get-CPUStatus <machinename>
     .NOTES
     Notes
     .LINK
