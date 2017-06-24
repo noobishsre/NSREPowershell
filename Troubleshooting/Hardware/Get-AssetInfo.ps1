@@ -1,5 +1,18 @@
 ﻿Function Get-AssetInfo
 {
+    <#
+    .SYNOPSIS
+    Script Synopsis
+    .DESCRIPTION
+    Script Description
+    .EXAMPLE
+    Usage Example
+    .NOTES
+    Notes
+    .LINK
+    URL
+    #>
+
     Param(
         [Parameter(Mandatory=$true,
         ValueFromPipeline=$true,

@@ -1,5 +1,18 @@
 ﻿function Get-EmployeeData
 {
+    <#
+    .SYNOPSIS
+    Script Synopsis
+    .DESCRIPTION
+    Script Description
+    .EXAMPLE
+    Usage Example
+    .NOTES
+    Notes
+    .LINK
+    URL
+    #>
+
     $employeeID = Read-Host "Please Enter Employee ID"
     
     $firstN = "a.F_N as EI_FN,b.F_N as OI_FN"

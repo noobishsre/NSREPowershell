@@ -1,5 +1,18 @@
 ﻿function Insert-NewEmployee{
 
+    <#
+    .SYNOPSIS
+    Script Synopsis
+    .DESCRIPTION
+    Script Description
+    .EXAMPLE
+    Usage Example
+    .NOTES
+    Notes
+    .LINK
+    URL
+    #>
+
     $fn = Read-Host "First Name:"
     $fn = "'$fn'"
     $ln = Read-Host "Last Name:"

@@ -1,5 +1,18 @@
 ﻿function Validate-EmployeeData
 {
+    <#
+    .SYNOPSIS
+    Script Synopsis
+    .DESCRIPTION
+    Script Description
+    .EXAMPLE
+    Usage Example
+    .NOTES
+    Notes
+    .LINK
+    URL
+    #>
+
     ##Get Employee ID
     $employeeID = Read-Host "Please Enter Employee ID"
     
