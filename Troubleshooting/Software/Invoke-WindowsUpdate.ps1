@@ -1,45 +1,26 @@
 Function Invoke-WindowsUpdate
 {
-<#
+    <#
     .SYNOPSIS
-		Powershell Script to Install Updates Based on the Type of update
-	.DESCRIPTION
-        Using the WIndows Update API, Each update has a specific Root category. By selecting with Type of Update you want, you can avoid installing unwanted updates
-	.PARAMETER Path
-		The full path AND name where the script is located.
-	.PARAMETER Reboot
-        If a reboot is required for an update, the system will restart.
-	.PARAMETER ScanOnly
-		As implies, It does not download or install updates, just lists the available ones based on criteria 
-	.PARAMETER ProxyAddress
-        *THIS PARAMETER IS STILL BETA!!!* Instead of using the default windows update API, use another endpoint for updates. 
-    .PARAMETER UpdateTypes
-        RootCategories that are associated with windows updates. Choose the types you wish to filter for. 
+    --Synopsis--
+    .DESCRIPTION
+    --Description--
     .EXAMPLE
-		    & '.\Invoke-WindowsUpdates.ps1' -Reboot -UpdateTypes Definition, Critical, Security -Path '.\Invoke-WindowsUpdates.ps1'
-    .Notes
-        Author: Leotus Richard
-        website: http://outboxedsolutions.azurewebsites.net/
+    --Example--
+    .NOTES
+    --Notes--
+    .LINK
+    --URL--
+    #>
+    [CmdletBinding()]
+    param(
+    $Path = (Get-Location),
+    [switch]$Reboot, 
+    [switch]$ScanOnly = $true, 
+    [string]$ProxyAddress,
+    [String[]][ValidateSet("Critical","Definition", "Drivers", "FeaturePacks", "Security", "ServicePacks", "Tools", "UpdateRollups", "Updates", "Microsoft", "ALL")]$UpdateTypes
 
-        Version History
-        1.0.0 Initial Release
-
-        1.0.1 Adjusted script, SCANONLY is default $true to prevent accidental windows installation.  
-
-        Upcoming Features
-            - Report generator
-            - email functionality
-            - Improve WSUS/Proxy functionality *BETA*
-#>
-[CmdletBinding()]
-param(
-$Path = (Get-Location),
-[switch]$Reboot, 
-[switch]$ScanOnly = $true, 
-[string]$ProxyAddress,
-[String[]][ValidateSet("Critical","Definition", "Drivers", "FeaturePacks", "Security", "ServicePacks", "Tools", "UpdateRollups", "Updates", "Microsoft", "ALL")]$UpdateTypes
-
-)
+    )
     $AvailableUpdates = @()
     $UpdateIds = @()
     $UpdateTypes

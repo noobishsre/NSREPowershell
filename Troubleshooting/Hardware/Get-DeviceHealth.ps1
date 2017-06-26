@@ -1,5 +1,17 @@
 Function Get-DeviceHealth
 {
+    <#
+    .SYNOPSIS
+    --Synopsis--
+    .DESCRIPTION
+    --Description--
+    .EXAMPLE
+    --Example--
+    .NOTES
+    --Notes--
+    .LINK
+    --URL--
+    #>
 $ServerListFile = "C:\ServerList.txt"  
 $ServerList = Get-Content $ServerListFile -ErrorAction SilentlyContinue 
 $Result = @() 
